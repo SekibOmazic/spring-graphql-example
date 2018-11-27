@@ -1,0 +1,29 @@
+type Query {
+    employees(pagination: Pagination!): [Employee]
+    employee(id: ID!): Employee
+    employeeCount: Int
+}
+
+type Mutation {
+    createEmployee(input: EmployeeInput!): Employee
+}
+
+type Employee {
+    id: ID!
+    firstName: String
+    lastName: String
+    title: String
+    email: String
+}
+
+input EmployeeInput {
+    firstName: String!
+    lastName: String!
+    title: String!
+    email: String!
+}
+
+input Pagination {
+    page: Int!
+    size: Int!
+}
