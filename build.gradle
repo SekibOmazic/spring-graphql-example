@@ -34,7 +34,9 @@ dependencies {
     runtime('com.h2database:h2')
 
     // GraphQL
-    //compile 'com.graphql-java-kickstart:graphql-java-tools:5.4.1'
-    compile('com.graphql-java-kickstart:graphql-spring-boot-starter:5.3.1')
-    compile('com.graphql-java-kickstart:graphiql-spring-boot-starter:5.3.1')
+    compile('com.graphql-java-kickstart:graphql-java-tools:5.4.1')
+    compile('com.graphql-java-kickstart:graphql-java-servlet:7.1.1')
+
+    //compile('com.graphql-java-kickstart:graphql-spring-boot-starter:5.3.1')
+    //compile('com.graphql-java-kickstart:graphiql-spring-boot-starter:5.3.1')
 }
