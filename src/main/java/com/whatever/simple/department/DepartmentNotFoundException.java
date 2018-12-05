@@ -1,22 +1,21 @@
-package com.whatever.simple.employee;
+package com.whatever.simple.department;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import graphql.ErrorType;
+import graphql.GraphQLError;
+import graphql.language.SourceLocation;
 import lombok.AllArgsConstructor;
 
 import java.util.List;
 
-import graphql.ErrorType;
-import graphql.GraphQLError;
-import graphql.language.SourceLocation;
-
 
 @AllArgsConstructor
-public class EmployeeNotFoundException extends RuntimeException implements GraphQLError {
+public class DepartmentNotFoundException extends RuntimeException implements GraphQLError {
     private Long id;
 
     @Override
     public String getMessage() {
-        return "Employee with id '" + id + "' was not found";
+        return "Department with id '" + id + "' was not found";
     }
 
     @Override

@@ -1,2 +1,10 @@
-INSERT INTO employee (ID, FIRST_NAME, LAST_NAME, TITLE, EMAIL)
-VALUES (1, 'Mickey', 'Mouse', 'Chief Entertaining Officer', 'me@here.com');
+INSERT INTO "organizations" ("id","name","created_at","updated_at") VALUES (DEFAULT,'Magic Company Ltd.',CURRENT_TIMESTAMP, CURRENT_TIMESTAMP) RETURNING *;
+INSERT INTO "departments" ("id","name","created_at","updated_at","organization_id") VALUES (DEFAULT,'Dept-1',CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1) RETURNING *;
+INSERT INTO "departments" ("id","name","created_at","updated_at","organization_id") VALUES (DEFAULT,'Dept-2',CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1) RETURNING *;
+INSERT INTO "departments" ("id","name","created_at","updated_at","organization_id") VALUES (DEFAULT,'Dept-3',CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1) RETURNING *;
+INSERT INTO "employees" ("id","first_name","last_name","title","role","created_at","updated_at","department_id") VALUES (DEFAULT,'Leanne','Graham','Chief GraphQL Officer','Guru',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,1) RETURNING *;
+INSERT INTO "employees" ("id","first_name","last_name","title","role","created_at","updated_at","department_id") VALUES (DEFAULT,'Ervin','Howell','Ultra Manager','Assistant to the Guru',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,1) RETURNING *;
+INSERT INTO "employees" ("id","first_name","last_name","title","role","created_at","updated_at","department_id") VALUES (DEFAULT,'Clementine','Bauch','Senior Accountant','Wannabe Manager',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,2) RETURNING *;
+INSERT INTO "employees" ("id","first_name","last_name","title","role","created_at","updated_at","department_id") VALUES (DEFAULT,'Patricia','Lebsack','Sales Magician','Coworking space manager',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,2) RETURNING *;
+INSERT INTO "employees" ("id","first_name","last_name","title","role","created_at","updated_at","department_id") VALUES (DEFAULT,'Chelsey','Dietrich','Data Cruncher','Data Scientist',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,3) RETURNING *;
+INSERT INTO "employees" ("id","first_name","last_name","title","role","created_at","updated_at","department_id") VALUES (DEFAULT,'Max','Johnstone','Database Administrator','SQL lover',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,3) RETURNING *;

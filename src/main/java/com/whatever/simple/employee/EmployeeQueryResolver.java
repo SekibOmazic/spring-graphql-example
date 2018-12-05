@@ -24,4 +24,10 @@ public class EmployeeQueryResolver implements GraphQLQueryResolver {
     public Employee getEmployee(Long id) {
         return employeeRepository.findById(id).orElseThrow(() -> new EmployeeNotFoundException(id));
     }
+
+    public Employee me() {
+        Employee e = employeeRepository.findById(1L).orElseThrow(() -> new EmployeeNotFoundException(1L));
+
+        return e;
+    }
 }

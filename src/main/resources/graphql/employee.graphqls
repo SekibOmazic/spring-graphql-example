@@ -2,6 +2,7 @@ type Query {
     employees(pagination: Pagination!): [Employee]
     employee(id: ID!): Employee
     employeeCount: Int
+    me: Employee!
 }
 
 type Mutation {
@@ -13,14 +14,17 @@ type Employee {
     firstName: String
     lastName: String
     title: String
-    email: String
+    role: String
+
+    department: Department
 }
 
 input EmployeeInput {
     firstName: String!
     lastName: String!
     title: String!
-    email: String!
+    role: String!
+    departmentId: ID!
 }
 
 input Pagination {

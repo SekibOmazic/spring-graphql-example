@@ -1,4 +1,4 @@
-package com.whatever.simple.employee;
+package com.whatever.simple.organization;
 
 import com.whatever.simple.department.Department;
 import lombok.AllArgsConstructor;
@@ -8,20 +8,19 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.LinkedList;
+import java.util.List;
 
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Employees")
-public class Employee {
+@Table(name = "Organizations")
+public class Organization {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String firstName;
-    private String lastName;
-    private String title;
-    private String role;
+    private String name;
 
     @Column(name = "created_at", columnDefinition = "TIMESTAMP WITH TIME ZONE")
     @NotNull
@@ -31,19 +30,9 @@ public class Employee {
     @NotNull
     private LocalDateTime updatedAt;
 
-    @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Department department;
 
-
-    public Employee(Long id, String firstName, String lastName, String title, String role, Department department) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.title = title;
-        this.role = role;
-        this.department = department;
-    }
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Department> departments = new LinkedList<>();
 
     @PrePersist
     public void onPrePersist() {
